@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="57dp">
+
+            <ImageView
+                android:id="@+id/imageView6"
+                android:layout_width="51dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="3dp"
+                android:layout_marginTop="19dp"
+                app:srcCompat="@android:drawable/ic_menu_search" />
+
+            <AutoCompleteTextView
+                android:id="@+id/editTextText4"
+                android:layout_width="291dp"
+                android:layout_height="45dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="2dp"
+                android:layout_marginTop="12dp"
+                android:layout_toEndOf="@+id/imageView6"
+                android:background="@drawable/vien"
+                android:paddingLeft="15dp"
+                android:hint="tìm kiếm"
+                android:completionThreshold="1" />
+
+            <ImageView
+                android:id="@+id/imageView7"
+                android:layout_width="46dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="17dp"
+                android:layout_marginEnd="14dp"
+                app:srcCompat="@android:drawable/ic_menu_sort_by_size" />
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/imageView8"
+            android:layout_width="match_parent"
+            android:layout_height="242dp"
+            android:layout_marginTop="15dp"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/anhbv1" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="415dp">
+
+            <ImageButton
+                android:id="@+id/imageButton"
+                android:layout_width="62dp"
+                android:layout_height="82dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="23dp"
+                android:layout_marginTop="25dp"
+                app:srcCompat="@android:drawable/ic_menu_my_calendar" />
+
+            <TextView
+                android:id="@+id/ttcn"
+                android:layout_width="67dp"
+                android:layout_height="42dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="21dp"
+                android:layout_marginTop="111dp"
+                android:gravity="center"
+                android:text="thông tin cá nhân"
+                android:textColor="#141313"
+                android:textStyle="bold" />
+
+            <ImageButton
+                android:id="@+id/imageButton2"
+                android:layout_width="62dp"
+                android:layout_height="82dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="119dp"
+                android:layout_marginTop="25dp"
+                app:srcCompat="@android:drawable/ic_menu_today" />
+
+            <TextView
+                android:id="@+id/dl"
+                android:layout_width="65dp"
+                android:layout_height="53dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="117dp"
+                android:layout_marginTop="111dp"
+                android:gravity="center"
+                android:text="đặt lịch"
+                android:textColor="#141313"
+                android:textStyle="bold" />
+
+            <ImageButton
+                android:id="@+id/imageButton3"
+                android:layout_width="62dp"
+                android:layout_height="82dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="210dp"
+                android:layout_marginTop="25dp"
+                app:srcCompat="@android:drawable/ic_menu_mapmode" />
+
+            <TextView
+                android:id="@+id/lk"
+                android:layout_width="65dp"
+                android:layout_height="53dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="208dp"
+                android:layout_marginTop="114dp"
+                android:gravity="center"
+                android:text="lịch khám"
+                android:textColor="#141313"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+    </LinearLayout>
+</ScrollView>
