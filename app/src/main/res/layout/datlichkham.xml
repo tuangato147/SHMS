@@ -4,59 +4,108 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="95dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView22"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Chọn khoa Khám:"
+            android:textColor="#0F0E0E"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/radioButton2"
+                android:layout_width="197dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Khoa Nội" />
+
+            <RadioButton
+                android:id="@+id/radioButton3"
+                android:layout_width="192dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Khoa Ngoại" />
+
+            <RadioButton
+                android:id="@+id/radioButton4"
+                android:layout_width="196dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Khoa Thần Kinh" />
+        </RadioGroup>
+
+    </LinearLayout>
+
     <TableLayout
         android:layout_width="match_parent"
-        android:layout_height="209dp">
+        android:layout_height="282dp"
+        android:orientation="horizontal">
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="match_parent">
 
             <TextView
                 android:id="@+id/textView13"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:text="chọn bác sĩ:" />
+                android:text="chọn bác sĩ:"
+                android:textColor="@color/black" />
 
             <AutoCompleteTextView
                 android:id="@+id/editTextText5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Nhập tên bác sĩ"
                 android:completionThreshold="1"
+                android:hint="Nhập tên bác sĩ"
                 android:padding="12dp" />
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="match_parent">
 
             <TextView
                 android:id="@+id/textView14"
-                android:textColor="@color/black"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="thời gian:" />
+                android:text="thời gian:"
+                android:textColor="@color/black" />
 
             <EditText
                 android:id="@+id/editTextText6"
                 android:layout_width="350dp"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="text" />
+                android:hint="Chọn ngày"
+                android:focusable="false"
+                android:clickable="true"
+                android:inputType="none"
+                android:textColor="@color/black"/>
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="match_parent">
 
             <TextView
                 android:id="@+id/textView15"
-                android:textColor="@color/black"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="tiểu sử bệnh:" />
+                android:text="tiểu sử bệnh:"
+                android:textColor="@color/black" />
 
             <EditText
                 android:id="@+id/editTextText7"
@@ -68,14 +117,14 @@
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="match_parent">
 
             <TextView
                 android:id="@+id/textView16"
-                android:textColor="@color/black"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="mô tả:" />
+                android:text="mô tả:"
+                android:textColor="@color/black" />
 
             <EditText
                 android:id="@+id/editTextText8"
@@ -85,11 +134,30 @@
                 android:inputType="text" />
         </TableRow>
 
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/btphong"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#80cc2b"
+                android:text="Phòng:"
+                android:textColor="@color/white" />
+
+            <EditText
+                android:id="@+id/editTextText9"
+                android:layout_width="350dp"
+                android:layout_height="59dp"
+                android:ems="10"
+                android:inputType="text" />
+        </TableRow>
     </TableLayout>
 
     <Button
         android:id="@+id/button5"
-        android:layout_width="230dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:backgroundTint="#80cc2b"
@@ -97,7 +165,7 @@
 
     <Button
         android:id="@+id/button6"
-        android:layout_width="229dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:backgroundTint="#5670D0"

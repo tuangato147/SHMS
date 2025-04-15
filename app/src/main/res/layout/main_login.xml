@@ -107,7 +107,7 @@
         android:layout_gravity="center"
         android:layout_marginTop="15dp"
         android:backgroundTint="#FFFCFC"
-        android:text="i'll use emaill or phone"
+        android:text="Sign in"
         android:textAllCaps="false"
         android:textColor="#161414"
         app:cornerRadius="25dp" />

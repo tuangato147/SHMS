@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -53,7 +54,7 @@
             android:layout_height="200dp"
             android:layout_marginVertical="8dp"
             android:scaleType="centerCrop"
-            app:srcCompat="@drawable/anhbv1" />
+            android:src="@drawable/anhbv1" />
 
         <!-- Main Menu Grid -->
         <GridLayout
@@ -63,7 +64,7 @@
             android:padding="16dp"
             android:useDefaultMargins="true">
 
-            <!-- Row 1: Profile, Appointment, Schedule, History -->
+            <!-- Row 1: Profile, Medicine List, History, Room Maintenance -->
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -99,32 +100,6 @@
                 android:orientation="vertical">
 
                 <ImageButton
-                    android:id="@+id/imageButton2"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:background="?attr/selectableItemBackgroundBorderless"
-                    android:padding="8dp"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/datlich" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:text="Đặt lịch"
-                    android:textColor="#141313"
-                    android:textSize="12sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <ImageButton
                     android:id="@+id/imageButton3"
                     android:layout_width="48dp"
                     android:layout_height="48dp"
@@ -137,7 +112,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
-                    android:text="Lịch khám"
+                    android:gravity="center"
+                    android:text="Danh sách\nthuốc"
                     android:textColor="#141313"
                     android:textSize="12sp"
                     android:textStyle="bold" />
@@ -163,13 +139,41 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
-                    android:text="Lịch sử"
+                    android:gravity="center"
+                    android:text="Lịch sử\nnhập xuất"
                     android:textColor="#141313"
                     android:textSize="12sp"
                     android:textStyle="bold" />
             </LinearLayout>
 
-            <!-- Row 2: Prescription, Support, Message, Biometrics -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:id="@+id/imageButton26"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:padding="8dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/lichkham" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:gravity="center"
+                    android:text="Bảo trì\nphòng"
+                    android:textColor="#141313"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- Row 2: Import/Export Management, Admin, Messages, Biometrics -->
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -185,13 +189,14 @@
                     android:background="?attr/selectableItemBackgroundBorderless"
                     android:padding="8dp"
                     android:scaleType="fitCenter"
-                    android:src="@drawable/donthuoc" />
+                    android:src="@drawable/tdbn" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
-                    android:text="Đơn thuốc"
+                    android:gravity="center"
+                    android:text="Quản lý\nNhập/Xuất"
                     android:textColor="#141313"
                     android:textSize="12sp"
                     android:textStyle="bold" />
@@ -218,8 +223,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
-                    android:text="Tư vấn\nviên"
-                    android:gravity="center"
+                    android:text="Admin"
                     android:textColor="#141313"
                     android:textSize="12sp"
                     android:textStyle="bold" />
@@ -273,8 +277,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
-                    android:text="Sinh trắc\nhọc"
                     android:gravity="center"
+                    android:text="Sinh trắc\nhọc"
                     android:textColor="#141313"
                     android:textSize="12sp"
                     android:textStyle="bold" />

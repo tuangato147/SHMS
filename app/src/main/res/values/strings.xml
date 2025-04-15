@@ -1,3 +1,8 @@
 <resources>
-    <string name="app_name">SHMS</string>
+    <string name="app_name">Bệnh viện bảo lộc</string>
+
+    <string name="khoa_info">
+    "Lưu ý:\nA: là khoa ngoại\nB: là khoa nội\nC: là khoa thâ\'n kinh\n\nChữ đen: giường trống\nChữ đỏ: giường đầy\nChữ vàng: giường bảo trì"
+</string>
+
 </resources>
