@@ -170,7 +170,7 @@
                 android:id="@+id/textViewchuyenkhoa"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Chuyên khoa:"
+                android:text="Chức vụ:"
                 android:textColor="#000" />
 
             <EditText
@@ -178,7 +178,7 @@
                 android:layout_width="351dp"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="Nhập chuyên khoa"
+                android:hint="Nhập chức vụ"
                 android:inputType="number"
                 android:textColor="#000" />
         </TableRow>

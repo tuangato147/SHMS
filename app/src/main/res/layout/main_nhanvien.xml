@@ -113,7 +113,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
                     android:gravity="center"
-                    android:text="Danh sách\nthuốc"
+                    android:text="Danh sách\nkho thuốc"
                     android:textColor="#141313"
                     android:textSize="12sp"
                     android:textStyle="bold" />
