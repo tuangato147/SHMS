@@ -12,6 +12,6 @@ public class LoginViewModel extends AndroidViewModel {
 
     public LoginViewModel(Application application) {
         super(application);
-        userRepository = new UserRepository(application);
+        UserRepository userRepository = new UserRepository(application);
     }
 }
