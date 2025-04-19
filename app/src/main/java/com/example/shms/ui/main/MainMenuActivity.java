@@ -27,7 +27,7 @@ import com.example.shms.data.local.entities.Doctor;
 import com.example.shms.ui.adapters.DoctorAdapter;
 import com.example.shms.ui.profile.ProfileActivity;
 import com.example.shms.R;
-import com.example.shms.ScheduleViewActivity;
+import com.example.shms.ui.patient.schedule.ScheduleViewActivity;
 
 import java.util.ArrayList;
 import java.util.List;
