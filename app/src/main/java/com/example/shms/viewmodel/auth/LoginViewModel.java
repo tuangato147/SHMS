@@ -9,10 +9,9 @@ import com.example.shms.data.repository.UserRepository;
 
 // auth/LoginViewModel.java
 public class LoginViewModel extends AndroidViewModel {
-    private UserRepository userRepository;
 
     public LoginViewModel(Application application) {
         super(application);
-        userRepository = new UserRepository(application);
+        UserRepository userRepository = new UserRepository(application);
     }
 }
