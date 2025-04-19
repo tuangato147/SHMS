@@ -36,7 +36,7 @@
         <activity android:name=".ui.main.MainMenuActivity" />
         <activity android:name=".ui.profile.ProfileActivity" />
         <activity android:name=".ui.patient.appointment.AppointmentActivity" />
-        <activity android:name=".ScheduleViewActivity" />
+        <activity android:name=".ui.patient.schedule.ScheduleViewActivity" />
 
         <meta-data
             android:name="preloaded_fonts"
