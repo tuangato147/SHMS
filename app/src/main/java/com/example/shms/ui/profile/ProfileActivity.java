@@ -1,4 +1,4 @@
-package com.example.shms;
+package com.example.shms.ui.profile;
 
 import android.content.ContentValues;
 import android.database.Cursor;
@@ -10,6 +10,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.shms.data.local.database.DatabaseHelper;
+import com.example.shms.R;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;

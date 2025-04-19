@@ -1,4 +1,4 @@
-package com.example.shms;
+package com.example.shms.data.local.entities;
 
 public class Doctor {
     private int id;

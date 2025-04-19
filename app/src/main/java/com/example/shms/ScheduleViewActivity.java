@@ -9,6 +9,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.shms.data.local.database.DatabaseHelper;
+
 public class ScheduleViewActivity extends AppCompatActivity {
     private EditText edtBacSi, edtThoiGian, edtTieuSuBenh, edtMoTa, edtThongTinBS;
     private Button btnXacNhan;

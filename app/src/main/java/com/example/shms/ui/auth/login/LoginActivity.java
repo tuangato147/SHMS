@@ -1,4 +1,4 @@
-package com.example.shms;
+package com.example.shms.ui.auth.login;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,6 +12,10 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
+
+import com.example.shms.ui.main.MainMenuActivity;
+import com.example.shms.R;
+import com.example.shms.data.local.session.SessionManager;
 
 public class LoginActivity extends AppCompatActivity {
     private EditText edtUsername, edtPassword;
