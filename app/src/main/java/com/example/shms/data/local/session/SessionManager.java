@@ -1,4 +1,4 @@
-package com.example.shms;
+package com.example.shms.data.local.session;
 
 import android.content.Context;
 import android.content.SharedPreferences;

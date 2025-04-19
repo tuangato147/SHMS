@@ -22,7 +22,7 @@
 
         <!-- Main Activity (Launch Activity) -->
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.main.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -31,11 +31,11 @@
         </activity>
 
         <!-- Other Activities -->
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".RegisterActivity" />
-        <activity android:name=".MainMenuActivity" />
-        <activity android:name=".ProfileActivity" />
-        <activity android:name=".AppointmentActivity" />
+        <activity android:name=".ui.auth.login.LoginActivity" />
+        <activity android:name=".ui.auth.register.RegisterActivity" />
+        <activity android:name=".ui.main.MainMenuActivity" />
+        <activity android:name=".ui.profile.ProfileActivity" />
+        <activity android:name=".ui.patient.appointment.AppointmentActivity" />
         <activity android:name=".ScheduleViewActivity" />
 
         <meta-data

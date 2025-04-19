@@ -1,4 +1,4 @@
-package com.example.shms;
+package com.example.shms.ui.main;
 
 import android.content.Intent;
 import android.database.Cursor;
@@ -20,6 +20,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.widget.PopupWindow;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.shms.ui.patient.appointment.AppointmentActivity;
+import com.example.shms.data.local.database.DatabaseHelper;
+import com.example.shms.data.local.entities.Doctor;
+import com.example.shms.ui.adapters.DoctorAdapter;
+import com.example.shms.ui.profile.ProfileActivity;
+import com.example.shms.R;
+import com.example.shms.ScheduleViewActivity;
+
 import java.util.ArrayList;
 import java.util.List;
 

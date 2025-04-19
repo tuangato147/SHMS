@@ -1,4 +1,4 @@
-package com.example.shms;
+package com.example.shms.ui.auth.register;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,6 +10,10 @@ import android.widget.Switch;
 import android.widget.Toast;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.shms.R;
+import com.example.shms.data.local.session.SessionManager;
+import com.example.shms.ui.auth.login.LoginActivity;
 
 public class RegisterActivity extends AppCompatActivity {
     private EditText edtUsername, edtPassword, edtConfirmPassword;

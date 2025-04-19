@@ -23,10 +23,9 @@
 
         <ImageView
             android:id="@+id/imageView12"
-            android:layout_width="34dp"
-            android:layout_height="35dp"
+            android:layout_width="40dp"
+            android:layout_height="42dp"
             android:layout_gravity="center|left"
-            android:layout_weight=""
             app:srcCompat="@drawable/search" />
 
         <EditText

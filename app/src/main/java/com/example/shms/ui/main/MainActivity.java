@@ -1,4 +1,4 @@
-package com.example.shms;
+package com.example.shms.ui.main;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,6 +7,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.shms.R;
+import com.example.shms.data.local.session.SessionManager;
+import com.example.shms.ui.auth.login.LoginActivity;
+import com.example.shms.ui.auth.register.RegisterActivity;
 
 public class MainActivity extends AppCompatActivity {
     private TextView tvLogin;
