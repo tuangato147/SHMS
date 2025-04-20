@@ -19,6 +19,12 @@ public interface UserDao {
     @Query("SELECT * FROM users WHERE id = :id")
     LiveData<User> getUserById(int id);
 
+    @Query("SELECT * FROM users")
+    LiveData<List<User>> getAllUsers();
+
+    @Query("SELECT * FROM users WHERE role = :role")
+    LiveData<List<User>> getUsersByRole(String role);
+
     @Insert
     long insert(User user);
 
@@ -27,7 +33,4 @@ public interface UserDao {
 
     @Delete
     void delete(User user);
-
-    @Query("SELECT * FROM users WHERE role = :role")
-    LiveData<List<User>> getUsersByRole(String role);
 }
