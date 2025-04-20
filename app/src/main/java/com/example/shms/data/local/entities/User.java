@@ -16,5 +16,31 @@ public class User {
     private int id;
     private String username;
     private String password;
+
+    public void setUsername(String test) {
+    }
     // getters and setters
+
+    public int getId() {
+        return id;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public void setRole(String roleUser) {
+    }
 }

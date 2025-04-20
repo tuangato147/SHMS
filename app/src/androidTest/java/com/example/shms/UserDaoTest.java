@@ -1,5 +1,7 @@
 package com.example.shms;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+
 import android.content.Context;
 
 import androidx.lifecycle.LiveData;
@@ -41,9 +43,21 @@ public class UserDaoTest {
 
     @Test
     public void insertAndGetUser() throws Exception {
-        User user = new User("test", "password", "ROLE_USER");
-        userDao.insert(user);
-        LiveData<User> userById = userDao.getUserById(1);
-        // Test assertions
+        // Tạo user test bằng setter methods
+        User user = new User();
+        user.setUsername("test");
+        user.setPassword("password");
+        user.setRole("ROLE_USER");
+
+        // Insert user
+        long userId = userDao.insert(user);
+
+        // Kiểm tra user đã được insert
+        LiveData<User> loadedUser = userDao.getUserById((int)userId);
+        // Sử dụng TestUtil để observe LiveData
+        User actualUser = TestUtil.getValue(loadedUser);
+
+        assertThat(actualUser.getUsername()).isEqualTo("test");
+        assertThat(actualUser.getRole()).isEqualTo("ROLE_USER");
     }
 }
