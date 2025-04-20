@@ -54,6 +54,9 @@ dependencies {
     val room_version = "2.6.1"
     implementation("androidx.room:room-runtime:$room_version")
     annotationProcessor("androidx.room:room-compiler:$room_version")
+    implementation("androidx.room:room-ktx:$room_version")
+    implementation("androidx.lifecycle:lifecycle-viewmodel:2.7.0")
+    implementation("androidx.lifecycle:lifecycle-livedata:2.7.0")
 
     // ViewModel và LiveData
     val lifecycle_version = "2.7.0"
@@ -63,4 +66,8 @@ dependencies {
     // Coroutines - Để xử lý bất đồng bộ
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.1")
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version")
+
+    // Testing
+    testImplementation("androidx.room:room-testing:$room_version")
+        androidTestImplementation("androidx.arch.core:core-testing:2.2.0")
 }

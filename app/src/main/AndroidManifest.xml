@@ -22,7 +22,7 @@
 
         <!-- Main Activity (Launch Activity) -->
         <activity
-            android:name=".ui.main.MainActivity"
+            android:name=".SHMSApplication"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
