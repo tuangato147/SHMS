@@ -3,7 +3,9 @@ package com.example.shms;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 import android.database.Cursor;
+import static org.junit.Assert.assertEquals;
 
+import androidx.room.migration.Migration;
 import androidx.room.testing.MigrationTestHelper;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 import androidx.sqlite.db.framework.FrameworkSQLiteOpenHelperFactory;
@@ -27,6 +29,28 @@ public class MigrationTest {
     @Rule
     public MigrationTestHelper helper;
 
+    // Định nghĩa Migration (thêm vào AppDatabase.java)
+    static final Migration MIGRATION_1_2 = new Migration(1, 2) {
+        @Override
+        public void migrate(SupportSQLiteDatabase database) {
+            // Logic migration ở đây
+            database.execSQL("CREATE TABLE IF NOT EXISTS `users_new` " +
+                    "(`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, " +
+                    "`username` TEXT NOT NULL, " +
+                    "`password` TEXT NOT NULL, " +
+                    "`role` TEXT NOT NULL)");
+
+            // Copy dữ liệu từ bảng cũ (nếu có)
+            database.execSQL("INSERT INTO users_new (id, username, password, role) " +
+                    "SELECT id, username, password, role FROM users");
+
+            // Xóa bảng cũ
+            database.execSQL("DROP TABLE IF EXISTS users");
+
+            // Đổi tên bảng mới
+            database.execSQL("ALTER TABLE users_new RENAME TO users");
+        }
+    };
     @Before
     public void setUp() {
         // Khởi tạo MigrationTestHelper

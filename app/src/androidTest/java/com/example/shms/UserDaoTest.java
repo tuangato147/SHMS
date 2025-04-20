@@ -1,19 +1,16 @@
 package com.example.shms;
 
-import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.Assert.assertEquals; // Thêm import này
 
 import android.content.Context;
 
-import androidx.lifecycle.LiveData;
+import androidx.arch.core.executor.testing.InstantTaskExecutorRule;
 import androidx.room.Room;
-import androidx.room.testing.MigrationTestHelper;
-import androidx.sqlite.db.SupportSQLiteDatabase;
 import androidx.test.core.app.ApplicationProvider;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 
 import com.example.shms.data.local.dao.UserDao;
 import com.example.shms.data.local.database.AppDatabase;
-import com.example.shms.data.local.database.Migration_1_2;
 import com.example.shms.data.local.entities.User;
 
 import org.junit.After;
@@ -22,17 +19,20 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import java.io.IOException;
-
 @RunWith(AndroidJUnit4.class)
 public class UserDaoTest {
     private UserDao userDao;
     private AppDatabase db;
 
+    @Rule
+    public InstantTaskExecutorRule instantTaskExecutorRule = new InstantTaskExecutorRule();
+
     @Before
     public void createDb() {
         Context context = ApplicationProvider.getApplicationContext();
-        db = Room.inMemoryDatabaseBuilder(context, AppDatabase.class).build();
+        db = Room.inMemoryDatabaseBuilder(context, AppDatabase.class)
+                .allowMainThreadQueries()
+                .build();
         userDao = db.userDao();
     }
 
@@ -43,7 +43,7 @@ public class UserDaoTest {
 
     @Test
     public void insertAndGetUser() throws Exception {
-        // Tạo user test bằng setter methods
+        // Tạo user test
         User user = new User();
         user.setUsername("test");
         user.setPassword("password");
@@ -52,12 +52,11 @@ public class UserDaoTest {
         // Insert user
         long userId = userDao.insert(user);
 
-        // Kiểm tra user đã được insert
-        LiveData<User> loadedUser = userDao.getUserById((int)userId);
-        // Sử dụng TestUtil để observe LiveData
-        User actualUser = TestUtil.getValue(loadedUser);
+        // Lấy user từ database
+        User loadedUser = TestUtil.getValue(userDao.getUserById((int)userId));
 
-        assertThat(actualUser.getUsername()).isEqualTo("test");
-        assertThat(actualUser.getRole()).isEqualTo("ROLE_USER");
+        // Kiểm tra dữ liệu
+        assertEquals("test", loadedUser.getUsername());
+        assertEquals("ROLE_USER", loadedUser.getRole());
     }
 }

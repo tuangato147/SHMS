@@ -10,10 +10,12 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.room.TypeConverters;
+import androidx.room.migration.Migration;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import com.example.shms.data.local.dao.AppointmentDao;
 import com.example.shms.data.local.dao.DoctorDao;
+import com.example.shms.data.local.dao.NotificationDao;
 import com.example.shms.data.local.dao.ScheduleDao;
 import com.example.shms.data.local.dao.UserDao;
 import com.example.shms.data.local.entities.Appointment;
