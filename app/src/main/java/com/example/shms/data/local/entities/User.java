@@ -6,6 +6,8 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 import androidx.room.ColumnInfo;
 
+import com.example.shms.utils.Constants;
+
 /**
  * Entity class đại diện cho bảng User trong database
  * Sử dụng annotation của Room để định nghĩa cấu trúc bảng
@@ -32,6 +34,16 @@ public class User {
 
     @ColumnInfo(name = "phone")
     private String phone;
+
+    // Thêm trường để đánh dấu multiple roles
+    @ColumnInfo(name = "is_doctor")
+    private boolean isDoctor = false;
+
+    @ColumnInfo(name = "is_staff")
+    private boolean isStaff = false;
+
+    @ColumnInfo(name = "is_patient")
+    private boolean isPatient = false;
 
     // Constructor mặc định (cần thiết cho Room)
     public User() {}
@@ -91,5 +103,44 @@ public class User {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public boolean isDoctor() {
+        return isDoctor;
+    }
+
+    public void setDoctor(boolean doctor) {
+        isDoctor = doctor;
+    }
+
+    public boolean isStaff() {
+        return isStaff;
+    }
+
+    public void setStaff(boolean staff) {
+        isStaff = staff;
+    }
+
+    public boolean isPatient() {
+        return isPatient;
+    }
+
+    public void setPatient(boolean patient) {
+        isPatient = patient;
+    }
+
+    public boolean hasRole(String roleToCheck) {
+        switch (roleToCheck) {
+            case Constants.ROLE_ADMIN:
+                return role.equals(Constants.ROLE_ADMIN);
+            case Constants.ROLE_DOCTOR:
+                return isDoctor;
+            case Constants.ROLE_STAFF:
+                return isStaff;
+            case Constants.ROLE_PATIENT:
+                return isPatient;
+            default:
+                return false;
+        }
     }
 }

@@ -69,16 +69,26 @@ public class ScheduleViewActivity extends AppCompatActivity {
 
             if (appointmentCursor != null && appointmentCursor.moveToFirst()) {
                 // Hiển thị thông tin lịch khám
-                String tenBacSi = appointmentCursor.getString(appointmentCursor.getColumnIndex("tenBacSi"));
-                edtBacSi.setText(tenBacSi);
-                edtThoiGian.setText(appointmentCursor.getString(appointmentCursor.getColumnIndex("thoiGian")));
-                edtTieuSuBenh.setText(appointmentCursor.getString(appointmentCursor.getColumnIndex("tieuSuBenh")));
-                edtMoTa.setText(appointmentCursor.getString(appointmentCursor.getColumnIndex("moTa")));
+                int tenBacSiIndex = appointmentCursor.getColumnIndex("tenBacSi");
+                int thoiGianIndex = appointmentCursor.getColumnIndex("thoiGian");
+                int tieuSuBenhIndex = appointmentCursor.getColumnIndex("tieuSuBenh");
+                int moTaIndex = appointmentCursor.getColumnIndex("moTa");
+                int chuyenKhoaIndex = appointmentCursor.getColumnIndex("chuyenKhoa");
+                int kinhNghiemIndex = appointmentCursor.getColumnIndex("kinhNghiem");
+                int thongTinChiTietIndex = appointmentCursor.getColumnIndex("thongTinChiTiet");
 
-                // Hiển thị thông tin bác sĩ
-                String chuyenKhoa = appointmentCursor.getString(appointmentCursor.getColumnIndex("chuyenKhoa"));
-                String kinhNghiem = appointmentCursor.getString(appointmentCursor.getColumnIndex("kinhNghiem"));
-                String thongTinChiTiet = appointmentCursor.getString(appointmentCursor.getColumnIndex("thongTinChiTiet"));
+                String tenBacSi = tenBacSiIndex >= 0 ? appointmentCursor.getString(tenBacSiIndex) : "";
+                String thoiGian = thoiGianIndex >= 0 ? appointmentCursor.getString(thoiGianIndex) : "";
+                String tieuSuBenh = tieuSuBenhIndex >= 0 ? appointmentCursor.getString(tieuSuBenhIndex) : "";
+                String moTa = moTaIndex >= 0 ? appointmentCursor.getString(moTaIndex) : "";
+                String chuyenKhoa = chuyenKhoaIndex >= 0 ? appointmentCursor.getString(chuyenKhoaIndex) : "";
+                String kinhNghiem = kinhNghiemIndex >= 0 ? appointmentCursor.getString(kinhNghiemIndex) : "";
+                String thongTinChiTiet = thongTinChiTietIndex >= 0 ? appointmentCursor.getString(thongTinChiTietIndex) : "";
+
+                edtBacSi.setText(tenBacSi);
+                edtThoiGian.setText(thoiGian);
+                edtTieuSuBenh.setText(tieuSuBenh);
+                edtMoTa.setText(moTa);
 
                 String thongTinBS = "THÔNG TIN BÁC SĨ:\n\n" +
                         "Tên bác sĩ: " + tenBacSi + "\n\n" +

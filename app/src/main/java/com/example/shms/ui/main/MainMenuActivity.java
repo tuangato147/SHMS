@@ -205,10 +205,10 @@ public class MainMenuActivity extends AppCompatActivity {
                     .setTitle("Thông tin chi tiết bác sĩ")
                     .setMessage(String.format(
                             "Tên: %s\n\nChuyên khoa: %s\n\nKinh nghiệm: %s\n\nThông tin chi tiết: %s",
-                            doctor.getTenBacSi(),
-                            doctor.getChuyenKhoa(),
-                            doctor.getKinhNghiem(),
-                            doctor.getThongTinChiTiet()
+                            doctor.getTenBacSi(), // tạo getTenBacSi() trong Doctor.java
+                            doctor.getChuyenKhoa(), // tạo getChuyenKhoa() trong Doctor.java
+                            doctor.getKinhNghiem(), // tạo getKinhNghiem() trong Doctor.java
+                            doctor.getThongTinChiTiet() // tạo getThongTinChiTiet() trong Doctor.java
                     ))
                     .setPositiveButton("Đóng", null)
                     .show();

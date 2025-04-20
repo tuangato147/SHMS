@@ -149,9 +149,15 @@ public class AppointmentActivity extends AppCompatActivity {
                     null, null, null);
 
             if (cursor != null && cursor.moveToFirst()) {
-                String chuyenKhoa = cursor.getString(cursor.getColumnIndex("chuyenKhoa"));
-                String kinhNghiem = cursor.getString(cursor.getColumnIndex("kinhNghiem"));
-                String thongTinChiTiet = cursor.getString(cursor.getColumnIndex("thongTinChiTiet"));
+                // Safely get column indices
+                int chuyenKhoaIndex = cursor.getColumnIndex("chuyenKhoa");
+                int kinhNghiemIndex = cursor.getColumnIndex("kinhNghiem");
+                int thongTinChiTietIndex = cursor.getColumnIndex("thongTinChiTiet");
+
+                // Default values in case columns are not found
+                String chuyenKhoa = chuyenKhoaIndex >= 0 ? cursor.getString(chuyenKhoaIndex) : "Không có thông tin";
+                String kinhNghiem = kinhNghiemIndex >= 0 ? cursor.getString(kinhNghiemIndex) : "Không có thông tin";
+                String thongTinChiTiet = thongTinChiTietIndex >= 0 ? cursor.getString(thongTinChiTietIndex) : "Không có thông tin";
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 builder.setTitle("Thông tin bác sĩ")

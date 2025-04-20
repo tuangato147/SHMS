@@ -36,9 +36,9 @@ public class DoctorAdapter extends RecyclerView.Adapter<DoctorAdapter.DoctorView
     @Override
     public void onBindViewHolder(@NonNull DoctorViewHolder holder, int position) {
         Doctor doctor = doctors.get(position);
-        holder.tvDoctorName.setText(doctor.getTenBacSi());
-        holder.tvSpecialty.setText("Chuyên khoa: " + doctor.getChuyenKhoa());
-        holder.tvExperience.setText("Kinh nghiệm: " + doctor.getKinhNghiem());
+        holder.tvDoctorName.setText(doctor.getTenBacSi()); //creare getTenBacSi method in Doctor class
+        holder.tvSpecialty.setText("Chuyên khoa: " + doctor.getChuyenKhoa()); //create getChuyenKhoa method in Doctor class
+        holder.tvExperience.setText("Kinh nghiệm: " + doctor.getKinhNghiem()); //create getKinhNghiem method in Doctor class
 
         holder.itemView.setOnClickListener(v -> {
             if (listener != null) {

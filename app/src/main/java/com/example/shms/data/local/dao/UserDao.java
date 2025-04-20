@@ -13,6 +13,9 @@ import java.util.List;
 
 @Dao
 public interface UserDao {
+    @Query("SELECT * FROM users WHERE username = :username LIMIT 1")
+    LiveData<User> getUserByUsername(String username);
+
     @Query("SELECT * FROM users WHERE username = :username AND password = :password")
     LiveData<User> login(String username, String password);
 
@@ -24,6 +27,9 @@ public interface UserDao {
 
     @Query("SELECT * FROM users WHERE role = :role")
     LiveData<List<User>> getUsersByRole(String role);
+
+    @Query("SELECT * FROM users WHERE username = :username AND password = :password AND (role = :role OR is_doctor = 1 OR is_staff = 1 OR is_patient = 1)")
+    LiveData<User> loginWithRole(String username, String password, String role);
 
     @Insert
     long insert(User user);

@@ -46,7 +46,7 @@ public class SHMSApplication extends Application {
 
             // Verify data
             DataIntegrityChecker checker = new DataIntegrityChecker(this);
-            checker.verifyDataIntegrity();
+            checker.verifyDataIntegrity(); // thiết lập phương thức verifyDataIntegrity() trong DataIntegrityChecker
 
             // Đánh dấu đã migrate xong
             PreferenceManager.getDefaultSharedPreferences(this)

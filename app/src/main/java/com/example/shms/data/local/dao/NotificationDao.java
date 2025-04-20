@@ -1,30 +1,30 @@
 package com.example.shms.data.local.dao;
 
-import android.app.Notification;
-
-import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
-
+import com.example.shms.data.local.entities.NotificationEntity;
 import java.util.List;
 
 @Dao
 public interface NotificationDao {
-    @Query("SELECT * FROM notifications WHERE user_id = :userId")
-    LiveData<List<Notification>> getNotificationsForUser(int userId);
+    @Query("SELECT * FROM notifications ORDER BY timestamp DESC")
+    List<NotificationEntity> getAllNotifications();
 
-    @Query("SELECT * FROM notifications WHERE is_read = 0")
-    LiveData<List<Notification>> getUnreadNotifications();
+    @Query("SELECT * FROM notifications WHERE isRead = 0")
+    List<NotificationEntity> getUnreadNotifications();
 
     @Insert
-    long insert(Notification notification);
+    void insert(NotificationEntity notification);
 
     @Update
-    void update(Notification notification);
+    void update(NotificationEntity notification);
 
     @Delete
-    void delete(Notification notification);
+    void delete(NotificationEntity notification);
+
+    @Query("DELETE FROM notifications")
+    void deleteAll();
 }

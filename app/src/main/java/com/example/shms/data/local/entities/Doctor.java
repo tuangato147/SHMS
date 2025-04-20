@@ -7,32 +7,36 @@ import androidx.room.PrimaryKey;
 public class Doctor {
     @PrimaryKey
     private int id;
-    private String name;
-    private String specialization;
+    private String tenBacSi;
+    private String chuyenKhoa;
+    private String kinhNghiem;
+    private String thongTinChiTiet;
 
-    // Getters
+    public Doctor(int id, String tenBacSi, String chuyenKhoa, String kinhNghiem, String thongTinChiTiet) {
+        this.id = id;
+        this.tenBacSi = tenBacSi;
+        this.chuyenKhoa = chuyenKhoa;
+        this.kinhNghiem = kinhNghiem;
+        this.thongTinChiTiet = thongTinChiTiet;
+    }
+
     public int getId() {
         return id;
     }
 
-    public String getName() {
-        return name;
+    public String getTenBacSi() {
+        return tenBacSi;
     }
 
-    public String getSpecialization() {
-        return specialization;
+    public String getChuyenKhoa() {
+        return chuyenKhoa;
     }
 
-    // Setters
-    public void setId(int id) {
-        this.id = id;
+    public String getKinhNghiem() {
+        return kinhNghiem;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setSpecialization(String specialization) {
-        this.specialization = specialization;
+    public String getThongTinChiTiet() {
+        return thongTinChiTiet;
     }
 }

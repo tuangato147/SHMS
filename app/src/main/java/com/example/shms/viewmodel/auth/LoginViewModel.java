@@ -20,6 +20,6 @@ public class LoginViewModel extends AndroidViewModel {
     }
 
     public LiveData<User> login(String username, String password) {
-        return repository.getUserByUsername(username);
+        return repository.getUserByUsername(username); // creater getUserByUsername in UserRepository
     }
 }

@@ -6,6 +6,7 @@ import android.app.Notification;
 import android.content.Context;
 
 import androidx.annotation.NonNull;
+import androidx.lifecycle.LiveData;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
@@ -22,6 +23,7 @@ import com.example.shms.data.local.entities.Appointment;
 import com.example.shms.data.local.entities.Doctor;
 import com.example.shms.data.local.entities.Schedule;
 import com.example.shms.data.local.entities.User;
+import com.example.shms.utils.Constants;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -73,8 +75,21 @@ public abstract class AppDatabase extends RoomDatabase {
         @Override
         public void onCreate(@NonNull SupportSQLiteDatabase db) {
             super.onCreate(db);
+
+            // Tạo tài khoản admin mặc định
             databaseWriteExecutor.execute(() -> {
-                // Thêm dữ liệu mặc định nếu cần
+                UserDao userDao = INSTANCE.userDao();
+
+                // Kiểm tra xem admin account đã tồn tại chưa
+                LiveData<User> adminUser = userDao.getUserByUsername(Constants.DEFAULT_ADMIN_USERNAME);// viết hàm getUserByUsername trong UserDao
+
+                if (adminUser.getValue() == null) {
+                    User admin = new User();
+                    admin.setUsername(Constants.DEFAULT_ADMIN_USERNAME);
+                    admin.setPassword(Constants.DEFAULT_ADMIN_PASSWORD);
+                    admin.setRole(Constants.ROLE_ADMIN);
+                    userDao.insert(admin);
+                }
             });
         }
     };
