@@ -21,6 +21,8 @@ public class Schedule {
     @ColumnInfo(name = "end_time")
     private String endTime;
 
+    private String workingHours;
+
     // Getters and Setters
 
     public int getId() {
@@ -61,5 +63,13 @@ public class Schedule {
 
     public void setEndTime(String endTime) {
         this.endTime = endTime;
+    }
+
+    public String getWorkingHours() {
+        return workingHours;
+    }
+
+    public void setWorkingHours(String workingHours) {
+        this.workingHours = workingHours;
     }
 }

@@ -23,6 +23,9 @@ public interface AppointmentDao {
     @Query("SELECT * FROM appointments WHERE appointment_date BETWEEN :startDate AND :endDate")
     LiveData<List<Appointment>> getAppointmentsBetweenDates(Date startDate, Date endDate);
 
+    @Query("SELECT * FROM appointments")
+    LiveData<List<Appointment>> getAllAppointments();
+
     @Insert
     long insert(Appointment appointment);
 

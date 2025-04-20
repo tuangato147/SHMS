@@ -74,4 +74,10 @@ dependencies {
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test:runner:1.5.2")
     androidTestImplementation("androidx.test:rules:1.5.0")
+
+    implementation("androidx.room:room-rxjava2:$room_version") // nếu dùng RxJava2
+    implementation("androidx.room:room-rxjava3:$room_version") // nếu dùng RxJava3
+    implementation("androidx.room:room-guava:$room_version")   // nếu dùng Guava
+    implementation("androidx.lifecycle:lifecycle-common-java8:$lifecycle_version")
+
 }

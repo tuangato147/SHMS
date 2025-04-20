@@ -23,6 +23,9 @@ public class Appointment {
     @ColumnInfo(name = "status")
     private String status;
 
+    @ColumnInfo(name = "date_time")
+    private Date dateTime;
+
     // Getters and Setters
 
     public int getId() {
@@ -63,5 +66,13 @@ public class Appointment {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public Date getDateTime() {
+        return dateTime;
+    }
+
+    public void setDateTime(Date dateTime) {
+        this.dateTime = dateTime;
     }
 }

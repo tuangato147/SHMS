@@ -19,6 +19,9 @@ public interface ScheduleDao {
     @Query("SELECT * FROM schedules WHERE day_of_week = :dayOfWeek")
     LiveData<List<Schedule>> getSchedulesByDay(String dayOfWeek);
 
+    @Query("SELECT * FROM schedules")
+    LiveData<List<Schedule>> getAllSchedules();
+
     @Insert
     long insert(Schedule schedule);
 
