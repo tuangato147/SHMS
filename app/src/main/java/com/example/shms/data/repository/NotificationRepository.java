@@ -2,8 +2,9 @@ package com.example.shms.data.repository;
 
 import android.app.Application;
 import androidx.lifecycle.LiveData;
-import com.example.shms.data.local.AppDatabase;
+
 import com.example.shms.data.local.dao.NotificationDao;
+import com.example.shms.data.local.database.AppDatabase;
 import com.example.shms.data.local.entities.NotificationEntity;
 import java.util.List;
 
