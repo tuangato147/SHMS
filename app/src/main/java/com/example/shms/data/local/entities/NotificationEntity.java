@@ -28,3 +28,4 @@ public class NotificationEntity {
     public boolean isRead() { return isRead; }
     public void setRead(boolean read) { isRead = read; }
 }
+// cap nhat fix loi

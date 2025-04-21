@@ -4,6 +4,7 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+//test
 @Entity(tableName = "notifications")
 public class NotificationEntity {
     @PrimaryKey(autoGenerate = true)
