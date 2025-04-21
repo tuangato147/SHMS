@@ -24,10 +24,13 @@ import com.example.shms.data.local.entities.Doctor;
 import com.example.shms.data.local.entities.Schedule;
 import com.example.shms.data.local.entities.User;
 import com.example.shms.utils.Constants;
+import com.example.shms.data.local.entities.Notification;  // Đảm bảo import này tồn tại
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 // Import các entity khác khi cần
+import com.example.shms.data.local.converter.DateConverter;  // Cập nhật import
+import com.example.shms.data.local.entities.Notification;  // Đảm bảo import này tồn tại
 
 /**
  * Class chính để quản lý database của ứng dụng
@@ -63,6 +66,7 @@ public abstract class AppDatabase extends RoomDatabase {
                                     context.getApplicationContext(),
                                     AppDatabase.class,
                                     "shms_database")
+                            .fallbackToDestructiveMigration()  // Thêm dòng này
                             .addCallback(sRoomDatabaseCallback)
                             .build();
                 }

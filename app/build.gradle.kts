@@ -63,6 +63,8 @@ dependencies {
     val lifecycle_version = "2.7.0"
     implementation("androidx.lifecycle:lifecycle-viewmodel:$lifecycle_version")
     implementation("androidx.lifecycle:lifecycle-livedata:$lifecycle_version")
+    implementation ("androidx.room:room-ktx:$room_version")
+
 
     // Coroutines - Để xử lý bất đồng bộ
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.1")
