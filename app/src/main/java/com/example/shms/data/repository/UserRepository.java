@@ -19,6 +19,10 @@ public class UserRepository {
         allUsers = userDao.getAllUsers();
     }
 
+    // Thêm method getUserByUsername
+    public LiveData<User> getUserByUsername(String username) {
+        return userDao.getUserByUsername(username);
+    }
     // Login methods
     public LiveData<User> login(String username, String password) {
         return userDao.login(username, password);

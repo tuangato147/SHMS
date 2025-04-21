@@ -94,9 +94,9 @@ public class DatabaseMigrationManager {
                     try {
                         Doctor doctor = new Doctor();
                         doctor.setId(cursor.getInt(idIndex)); // created setId method in Doctor class
-                        doctor.setName(cursor.getString(nameIndex)); // created setName method in Doctor class
-                        doctor.setSpecialty(cursor.getString(specialtyIndex)); // created setSpecialty method in Doctor class
-                        doctor.setPhone(cursor.getInt(phoneIndex)); // created setPhone method in Doctor class
+                        doctor.setTenBacSi(cursor.getString(nameIndex)); // created setName method in Doctor class
+                        doctor.setChuyenKhoa(cursor.getString(specialtyIndex)); // created setSpecialty method in Doctor class
+                        doctor.setSodienthoai(cursor.getInt(phoneIndex)); // created setPhone method in Doctor class
                         doctor.setEmail(cursor.getString(emailIndex)); // created setEmail method in Doctor class
 
                         AppDatabase.databaseWriteExecutor.execute(() -> {

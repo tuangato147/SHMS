@@ -2,7 +2,7 @@
 
 package com.example.shms.data.local.database;
 
-import android.app.Notification;
+//import android.app.Notification;
 import android.content.Context;
 
 import androidx.annotation.NonNull;
@@ -30,7 +30,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 // Import các entity khác khi cần
 import com.example.shms.data.local.converter.DateConverter;  // Cập nhật import
-import com.example.shms.data.local.entities.Notification;  // Đảm bảo import này tồn tại
+//import com.example.shms.data.local.entities.Notification;
 
 /**
  * Class chính để quản lý database của ứng dụng

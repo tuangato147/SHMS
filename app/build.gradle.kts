@@ -20,6 +20,20 @@ android {
         }
     }
 
+    defaultConfig {
+        // ... các config khác
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments += mapOf(
+                    "room.schemaLocation" to "$projectDir/schemas".toString(),
+                    "room.incremental" to "true",
+                    "room.expandProjection" to "true"
+                )
+            }
+        }
+    }
+
     buildTypes {
         release {
             isMinifyEnabled = false
@@ -33,6 +47,7 @@ android {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
+
 }
 
 dependencies {

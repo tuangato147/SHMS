@@ -1,18 +1,21 @@
 package com.example.shms.data.local.entities;
 
 import androidx.room.Entity;
+import androidx.room.Index;
 import androidx.room.PrimaryKey;
 import androidx.room.ForeignKey;
 import androidx.room.ColumnInfo;
-import java.util.Date;
+
 
 @Entity(
         tableName = "notifications",
         foreignKeys = @ForeignKey(entity = User.class,
                 parentColumns = "id",
-                childColumns = "userId",
+                childColumns = "user_id",
                 onDelete = ForeignKey.CASCADE
-        ))
+                ),
+        indices = {@Index("user_id")}// Thêm dòng này để tạo index)
+        )
 public class Notification {
     @PrimaryKey(autoGenerate = true)
     private int id;
