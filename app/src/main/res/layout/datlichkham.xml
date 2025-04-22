@@ -1,198 +1,182 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <LinearLayout
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.shms.ui.viewmodel.appointment.BookAppointmentViewModel" />
+    </data>
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="95dp"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/textView222"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Đặt Lịch Khám"
-            android:textColor="#0F0E0E"
-            android:textSize="34sp"
-            android:textStyle="bold" />
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/textView22"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Chọn khoa Khám:"
-            android:textColor="#0F0E0E"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-        <RadioGroup
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <RadioButton
-                android:id="@+id/radioButton2"
-                android:layout_width="197dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Khoa Nội" />
-
-            <RadioButton
-                android:id="@+id/radioButton3"
-                android:layout_width="192dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Khoa Ngoại" />
-
-            <RadioButton
-                android:id="@+id/radioButton4"
-                android:layout_width="196dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Khoa Thần Kinh" />
-        </RadioGroup>
-
-    </LinearLayout>
-
-    <ImageView
-        android:id="@+id/imageView11"
-        android:layout_width="170dp"
-        android:layout_height="205dp"
-        android:layout_gravity="center"
-        app:srcCompat="@drawable/user" />
-
-    <TextView
-        android:id="@+id/textView27"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="Tên bác sĩ " />
-
-    <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="282dp"
-        android:orientation="horizontal">
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
+            <!-- Header Section -->
             <TextView
-                android:id="@+id/textView13"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="chọn bác sĩ:"
-                android:textColor="@color/black" />
-
-            <AutoCompleteTextView
-                android:id="@+id/editTextText5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:completionThreshold="1"
-                android:hint="Nhập tên bác sĩ"
-                android:padding="12dp" />
-        </TableRow>
+                android:gravity="center"
+                android:text="Đặt Lịch Khám"
+                android:textColor="#0F0E0E"
+                android:textSize="34sp"
+                android:textStyle="bold" />
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            <!-- Department Selection -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Chọn khoa Khám:"
+                android:textColor="#0F0E0E"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:onCheckedChanged="@{(group, checkedId) -> viewModel.onDepartmentSelected(checkedId)}">
+
+                <RadioButton
+                    android:id="@+id/radioButton2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Khoa Nội" />
+
+                <RadioButton
+                    android:id="@+id/radioButton3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Khoa Ngoại" />
+
+                <RadioButton
+                    android:id="@+id/radioButton4"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Khoa Thần Kinh" />
+            </RadioGroup>
+
+            <!-- Doctor Info Section -->
+            <ImageView
+                android:id="@+id/imageView11"
+                android:layout_width="170dp"
+                android:layout_height="205dp"
+                android:layout_gravity="center"
+                android:src="@{viewModel.selectedDoctorImage}"
+                app:srcCompat="@drawable/user" />
 
             <TextView
-                android:id="@+id/textView14"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@{viewModel.selectedDoctorName}" />
+
+            <!-- Appointment Details -->
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <!-- Doctor Selection -->
+                <TableRow>
+                    <TextView
+                        android:text="Chọn bác sĩ:"
+                        android:textColor="@color/black" />
+
+                    <AutoCompleteTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@={viewModel.doctorName}"
+                        android:hint="Nhập tên bác sĩ"
+                        android:completionThreshold="1"
+                        android:padding="12dp" />
+                </TableRow>
+
+                <!-- Time Selection -->
+                <TableRow>
+                    <TextView
+                        android:text="Thời gian:"
+                        android:textColor="@color/black" />
+
+                    <EditText
+                        android:layout_width="350dp"
+                        android:layout_height="wrap_content"
+                        android:text="@={viewModel.appointmentDate}"
+                        android:hint="Chọn ngày"
+                        android:focusable="false"
+                        android:clickable="true"
+                        android:onClick="@{() -> viewModel.showDatePicker()}"
+                        android:inputType="none" />
+                </TableRow>
+
+                <!-- Medical History -->
+                <TableRow>
+                    <TextView
+                        android:text="Tiểu sử bệnh:"
+                        android:textColor="@color/black" />
+
+                    <EditText
+                        android:layout_width="350dp"
+                        android:layout_height="wrap_content"
+                        android:text="@={viewModel.medicalHistory}"
+                        android:inputType="text" />
+                </TableRow>
+
+                <!-- Description -->
+                <TableRow>
+                    <TextView
+                        android:text="Mô tả:"
+                        android:textColor="@color/black" />
+
+                    <EditText
+                        android:layout_width="350dp"
+                        android:layout_height="wrap_content"
+                        android:text="@={viewModel.description}"
+                        android:inputType="text" />
+                </TableRow>
+
+                <!-- Room Selection -->
+                <TableRow>
+                    <Button
+                        android:text="Phòng:"
+                        android:backgroundTint="#80cc2b"
+                        android:textColor="@color/white"
+                        android:onClick="@{() -> viewModel.showRoomSelection()}" />
+
+                    <EditText
+                        android:layout_width="350dp"
+                        android:layout_height="wrap_content"
+                        android:text="@={viewModel.selectedRoom}"
+                        android:enabled="false" />
+                </TableRow>
+            </TableLayout>
+
+            <!-- Action Buttons -->
+            <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="thời gian:"
-                android:textColor="@color/black" />
-
-            <EditText
-                android:id="@+id/editTextText6"
-                android:layout_width="350dp"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Chọn ngày"
-                android:focusable="false"
-                android:clickable="true"
-                android:inputType="none"
-                android:textColor="@color/black"/>
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:id="@+id/textView15"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="tiểu sử bệnh:"
-                android:textColor="@color/black" />
-
-            <EditText
-                android:id="@+id/editTextText7"
-                android:layout_width="350dp"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="text" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:id="@+id/textView16"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="mô tả:"
-                android:textColor="@color/black" />
-
-            <EditText
-                android:id="@+id/editTextText8"
-                android:layout_width="350dp"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="text" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+                android:layout_gravity="center"
+                android:backgroundTint="#80cc2b"
+                android:text="Thông tin bác sĩ"
+                android:onClick="@{() -> viewModel.showDoctorInfo()}" />
 
             <Button
-                android:id="@+id/btphong"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:backgroundTint="#80cc2b"
-                android:text="Phòng:"
-                android:textColor="@color/white" />
+                android:layout_gravity="center"
+                android:backgroundTint="#5670D0"
+                android:text="Xác nhận"
+                android:enabled="@{viewModel.isFormValid}"
+                android:onClick="@{() -> viewModel.confirmAppointment()}" />
 
-            <EditText
-                android:id="@+id/editTextText9"
-                android:layout_width="350dp"
-                android:layout_height="59dp"
-                android:ems="10"
-                android:inputType="text" />
-        </TableRow>
-    </TableLayout>
-
-    <Button
-        android:id="@+id/button5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:backgroundTint="#80cc2b"
-        android:text="thông tin bác sĩ" />
-
-    <Button
-        android:id="@+id/button6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:backgroundTint="#5670D0"
-        android:text="xác nhận" />
-</LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</layout>

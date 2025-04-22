@@ -1,21 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="200dp"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:background="@drawable/menu_background">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <TextView
-        android:id="@+id/tvDoctorList"
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.shms.ui.viewmodel.PopupMenuViewModel" />
+    </data>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="16dp"
-        android:text="Danh sách bác sĩ"
-        android:textColor="#000000"
-        android:background="?android:attr/selectableItemBackground"
-        android:clickable="true"
-        android:focusable="true"/>
+        android:orientation="vertical">
 
-    <!-- Thêm các item menu khác nếu cần -->
+        <!-- Danh sách bác sĩ -->
+        <TextView
+            android:id="@+id/tvDoctorList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:text="Danh sách bác sĩ"
+            android:textColor="#000000"
+            android:background="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="@{() -> viewModel.onDoctorListClick()}" />
 
-</LinearLayout>
+        <!-- Divider -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#E0E0E0"/>
+
+        <!-- Đăng xuất -->
+        <TextView
+            android:id="@+id/tvLogout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:text="Đăng xuất"
+            android:textColor="#FF0000"
+            android:background="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="@{() -> viewModel.onLogoutClick()}" />
+
+    </LinearLayout>
+</layout>

@@ -1,55 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <TextView
-        android:id="@+id/textView34"
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.shms.ui.viewmodel.doctor.DoctorScheduleViewModel" />
+    </data>
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="38dp"
-        android:gravity="center"
-        android:text="Lịch Khám"
-        android:textAllCaps="true"
-        android:textColor="#181717"
-        android:textSize="24sp"
-        android:textStyle="bold" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/textView35"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="danh sách khám đợi đuyệt"
-        android:textColor="#100D0D"
-        android:textSize="16sp" />
+        <TextView
+            android:id="@+id/textView34"
+            android:layout_width="match_parent"
+            android:layout_height="38dp"
+            android:gravity="center"
+            android:text="Lịch Khám"
+            android:textAllCaps="true"
+            android:textColor="#181717"
+            android:textSize="24sp"
+            android:textStyle="bold" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="223dp" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="danh sách khám đợi đuyệt"
+            android:textColor="#100D0D"
+            android:textSize="16sp" />
 
-    <TextView
-        android:id="@+id/textView36"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Danh sách đã được duyệt"
-        android:textColor="#0F0E0E"
-        android:textSize="16sp" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvPendingAppointments"
+            android:layout_width="match_parent"
+            android:layout_height="223dp"
+            app:items="@{viewModel.pendingAppointments}"
+            tools:listitem="@layout/item_appointment"/>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="239dp" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Danh sách đã được duyệt"
+            android:textColor="#0F0E0E"
+            android:textSize="16sp" />
 
-    <TextView
-        android:id="@+id/textView37"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="lịch ngày khám trong tuần"
-        android:textColor="#1B1B1B"
-        android:textSize="16sp" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvApprovedAppointments"
+            android:layout_width="match_parent"
+            android:layout_height="239dp"
+            app:items="@{viewModel.approvedAppointments}"
+            tools:listitem="@layout/item_appointment"/>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="lịch ngày khám trong tuần"
+            android:textColor="#1B1B1B"
+            android:textSize="16sp" />
 
-</LinearLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvWeeklySchedule"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:items="@{viewModel.weeklySchedule}"
+            tools:listitem="@layout/item_schedule"/>
+
+    </LinearLayout>
+</layout>

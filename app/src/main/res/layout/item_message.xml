@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="message"
+            type="com.example.shms.data.model.Message" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="4dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="@{message.isFromCurrentUser ? Gravity.END : Gravity.START}"
+            android:background="@{message.isFromCurrentUser ? @drawable/message_bubble_sent : @drawable/message_bubble_received}"
+            android:maxWidth="280dp"
+            android:padding="12dp"
+            android:text="@{message.content}"
+            android:textColor="@{message.isFromCurrentUser ? @color/white : @color/black}"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="@{message.isFromCurrentUser ? Gravity.END : Gravity.START}"
+            android:layout_marginTop="2dp"
+            android:text="@{message.timestamp}"
+            android:textColor="#757575"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+</layout>

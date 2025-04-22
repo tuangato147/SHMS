@@ -1,41 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <TextView
-        android:id="@+id/textView28"
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.shms.ui.viewmodel.medicine.PersonalPrescriptionViewModel" />
+    </data>
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="Đơn thuốc"
-        android:textColor="#100F0F"
-        android:textSize="34sp"
-        android:textStyle="bold" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/textView30"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#4E9FC5"
-        android:text="Chọn ngày" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Đơn thuốc"
+            android:textColor="#100F0F"
+            android:textSize="34sp"
+            android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/textView29"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="ngày gần nhất:"
-        android:textColor="#161414"
-        android:textSize="24sp"
-        android:textStyle="italic" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#4E9FC5"
+            android:text="Chọn ngày"
+            android:onClick="@{() -> viewModel.showDatePicker()}" />
 
-    <EditText
-        android:id="@+id/editTextTextMultiLine3"
-        android:layout_width="match_parent"
-        android:layout_height="591dp"
-        android:ems="10"
-        android:gravity="start|top"
-        android:inputType="textMultiLine" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{@string/latest_date(viewModel.selectedDate)}"
+            android:textColor="#161414"
+            android:textSize="24sp"
+            android:textStyle="italic" />
 
-</LinearLayout>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="591dp"
+            android:gravity="start|top"
+            android:inputType="textMultiLine"
+            android:text="@{viewModel.prescriptionDetails}"
+            android:enabled="false" />
+
+    </LinearLayout>
+</layout>

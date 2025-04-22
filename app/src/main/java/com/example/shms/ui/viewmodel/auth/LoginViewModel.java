@@ -1,4 +1,4 @@
-package com.example.shms.viewmodel.auth;
+package com.example.shms.ui.viewmodel.auth;
 
 
 import android.app.Application;

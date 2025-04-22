@@ -1,192 +1,150 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.shms.ui.viewmodel.user.UserProfileViewModel" />
+    </data>
 
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
-
-    <TextView
-        android:id="@+id/textView26"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:gravity="center"
-        android:text="Thông Tin Cá Nhân"
-        android:textColor="#1D1B1B"
-        android:textStyle="bold"
-        android:textSize="34sp" />
+        android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/imageViewAvatar"
-        android:layout_width="155dp"
-        android:layout_height="203dp"
-        android:layout_gravity="center"
-        android:background="@drawable/vien"
-        android:scaleType="center" />
-
-    <Button
-        android:id="@+id/button9"
-        android:layout_width="120dp"
-        android:layout_height="42dp"
-        android:layout_gravity="center"
-        android:backgroundTint="#2567a3"
-        android:text="đổi ảnh " />
-
-    <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TableRow
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:id="@+id/textViewHoTen"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:text="Họ và tên:" />
-
-            <EditText
-                android:id="@+id/editTextHoTen"
-                android:layout_width="351dp"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Nhập tên"
-                android:inputType="text"
-                android:textColor="#000" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:id="@+id/textViewNamSinh"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Năm sinh:"
-                android:textColor="#000" />
-
-            <EditText
-                android:id="@+id/editTextNamSinh"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:hint="dd/mm/yyyy"
-                android:maxLength="10"
-                android:inputType="number"
-                android:textColor="#000"
-                android:layout_column="1" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:id="@+id/textViewNoiO"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Nơi ở:"
-                android:textColor="#000" />
-
-            <EditText
-                android:id="@+id/editTextNoiO"
-                android:layout_width="351dp"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Nhập nơi ở"
-                android:inputType="text"
-                android:textColor="#000" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:id="@+id/textViewGioiTinh"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Giới tính:"
-                android:textColor="#000" />
-
-            <EditText
-                android:id="@+id/editTextGioiTinh"
-                android:layout_width="351dp"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Nhập giới tính"
-                android:inputType="text"
-                android:textColor="#000" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:id="@+id/textViewma"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Mã cá nhân:"
-                android:textColor="#000" />
-
-            <EditText
-                android:id="@+id/editTextma"
-                android:layout_width="351dp"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="number"
-                android:textColor="#000" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:id="@+id/textViewcancuoc"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Căn cước công dân:"
-                android:textColor="#000" />
-
-            <EditText
-                android:id="@+id/editTextcancuoc"
-                android:layout_width="351dp"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Nhập mã căn cước"
-                android:inputType="number"
-                android:textColor="#000" />
-        </TableRow>
-
-    </TableLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/buttonSuaThongTin"
-            android:layout_margin="10dp"
-            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:backgroundTint="#2567a3"
-            android:text="Sửa thông tin" />
+            android:orientation="vertical">
 
-        <Button
-            android:id="@+id/buttonXacNhan"
-            android:layout_margin="10dp"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:backgroundTint="#2567a3"
-            android:text="Xác nhận" />
-    </LinearLayout>
+            <TextView
+                android:id="@+id/textView26"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="Thông Tin Cá Nhân"
+                android:textColor="#1D1B1B"
+                android:textStyle="bold"
+                android:textSize="34sp" />
 
-</LinearLayout>
+            <ImageView
+                android:id="@+id/imageViewAvatar"
+                android:layout_width="155dp"
+                android:layout_height="203dp"
+                android:layout_gravity="center"
+                android:background="@drawable/vien"
+                android:scaleType="center"
+                android:onClick="@{() -> viewModel.onAvatarClick()}" />
+
+            <Button
+                android:id="@+id/button9"
+                android:layout_width="120dp"
+                android:layout_height="42dp"
+                android:layout_gravity="center"
+                android:backgroundTint="#2567a3"
+                android:text="đổi ảnh"
+                android:onClick="@{() -> viewModel.onChangeAvatarClick()}" />
+
+            <!-- TableLayout với Data Binding -->
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TableRow>
+                    <TextView
+                        android:text="Họ và tên:"
+                        android:textColor="@color/black"/>
+                    <EditText
+                        android:text="@={viewModel.hoTen}"
+                        android:hint="Nhập tên"
+                        android:enabled="@{viewModel.isEditing}"
+                        android:textColor="#000"/>
+                </TableRow>
+
+                <TableRow>
+                    <TextView
+                        android:text="Năm sinh:"
+                        android:textColor="#000"/>
+                    <EditText
+                        android:text="@={viewModel.namSinh}"
+                        android:hint="dd/mm/yyyy"
+                        android:enabled="@{viewModel.isEditing}"
+                        android:inputType="number"
+                        android:maxLength="10"
+                        android:textColor="#000"/>
+                </TableRow>
+
+                <TableRow>
+                    <TextView
+                        android:text="Nơi ở:"
+                        android:textColor="#000"/>
+                    <EditText
+                        android:text="@={viewModel.noiO}"
+                        android:hint="Nhập nơi ở"
+                        android:enabled="@{viewModel.isEditing}"
+                        android:textColor="#000"/>
+                </TableRow>
+
+                <TableRow>
+                    <TextView
+                        android:text="Giới tính:"
+                        android:textColor="#000"/>
+                    <EditText
+                        android:text="@={viewModel.gioiTinh}"
+                        android:hint="Nhập giới tính"
+                        android:enabled="@{viewModel.isEditing}"
+                        android:textColor="#000"/>
+                </TableRow>
+
+                <TableRow>
+                    <TextView
+                        android:text="Mã cá nhân:"
+                        android:textColor="#000"/>
+                    <EditText
+                        android:text="@={viewModel.maCaNhan}"
+                        android:enabled="@{viewModel.isEditing}"
+                        android:inputType="number"
+                        android:textColor="#000"/>
+                </TableRow>
+
+                <TableRow>
+                    <TextView
+                        android:text="Căn cước công dân:"
+                        android:textColor="#000"/>
+                    <EditText
+                        android:text="@={viewModel.canCuoc}"
+                        android:hint="Nhập mã căn cước"
+                        android:enabled="@{viewModel.isEditing}"
+                        android:inputType="number"
+                        android:textColor="#000"/>
+                </TableRow>
+            </TableLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_margin="10dp"
+                    android:backgroundTint="#2567a3"
+                    android:text="Sửa thông tin"
+                    android:onClick="@{() -> viewModel.onEditClick()}"
+                    android:enabled="@{!viewModel.isEditing}"/>
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_margin="10dp"
+                    android:backgroundTint="#2567a3"
+                    android:text="Xác nhận"
+                    android:onClick="@{() -> viewModel.onSaveClick()}"
+                    android:enabled="@{viewModel.isEditing}"/>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</layout>
