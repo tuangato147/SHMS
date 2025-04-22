@@ -1,15 +1,12 @@
-package com.example.shms.ui.adapter;
+package com.example.shms.ui.adapters;
 
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.shms.data.model.Bed;
 import com.example.shms.databinding.ItemBedBinding;
 import com.example.shms.ui.viewmodel.DatPhongViewModel;
-
 import java.util.List;
 
 public class BedAdapter extends RecyclerView.Adapter<BedAdapter.BedViewHolder> {

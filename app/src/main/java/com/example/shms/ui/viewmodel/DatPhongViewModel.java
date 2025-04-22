@@ -3,10 +3,8 @@ package com.example.shms.ui.viewmodel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
-
 import com.example.shms.R;
 import com.example.shms.data.model.Bed;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -58,7 +56,6 @@ public class DatPhongViewModel extends ViewModel {
     public void onBedClick(Bed bed) {
         if (!bed.isOccupied()) {
             // Xử lý đặt giường
-
         }
     }
 

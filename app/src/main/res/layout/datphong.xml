@@ -95,7 +95,8 @@
                 app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
                 app:spanCount="4"
                 app:items="@{viewModel.bedList}"
-                tools:listitem="@layout/item_bed" />
+                tools:listitem="@layout/item_bed"
+                tools:itemCount="8"/>
 
         </GridLayout>
 
