@@ -98,8 +98,14 @@ public class LoginViewModel extends AndroidViewModel {
     }
 
     public void onRoleSelectionClick() {
-        // Implement role selection logic here
-        // This should probably show a dialog or navigate to role selection screen
+        // Show dialog with role options
+        String[] roles = new String[]{
+                Constants.ROLE_DOCTOR,
+                Constants.ROLE_PATIENT,
+                Constants.ROLE_STAFF
+        };
+
+        // Implement dialog selection here
     }
 
     private void saveLoginState() {

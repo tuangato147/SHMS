@@ -14,6 +14,9 @@ import java.util.List;
 
 @Dao
 public interface AppointmentDao {
+    @Query("SELECT * FROM appointments")
+    LiveData<List<Appointment>> getAllAppointments();
+
     @Query("SELECT * FROM appointments WHERE patient_id = :patientId")
     LiveData<List<Appointment>> getAppointmentsByPatient(int patientId);
 
@@ -23,8 +26,20 @@ public interface AppointmentDao {
     @Query("SELECT * FROM appointments WHERE appointment_date BETWEEN :startDate AND :endDate")
     LiveData<List<Appointment>> getAppointmentsBetweenDates(Date startDate, Date endDate);
 
-    @Query("SELECT * FROM appointments")
-    LiveData<List<Appointment>> getAllAppointments();
+    @Query("SELECT * FROM appointments WHERE doctor_id = :doctorId AND status = 'PENDING'")
+    LiveData<List<Appointment>> getPendingAppointmentsByDoctor(int doctorId);
+
+    @Query("SELECT * FROM appointments WHERE doctor_id = :doctorId AND status = 'APPROVED'")
+    LiveData<List<Appointment>> getApprovedAppointmentsByDoctor(int doctorId);
+
+    @Query("SELECT * FROM appointments WHERE doctor_id = :doctorId AND monitored = 1")
+    LiveData<List<Appointment>> getMonitoredPatientsByDoctor(int doctorId);
+
+    @Query("SELECT EXISTS(SELECT 1 FROM appointments WHERE doctor_id = :doctorId " +
+            "AND appointment_date = :date " +
+            "AND ((start_time BETWEEN :startTime AND :endTime) " +
+            "OR (end_time BETWEEN :startTime AND :endTime)))")
+    boolean checkTimeSlotConflict(int doctorId, Date date, String startTime, String endTime);
 
     @Insert
     long insert(Appointment appointment);
