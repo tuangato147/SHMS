@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_doctor"
+    app:startDestination="@id/doctorMainFragment">
+
+    <fragment
+        android:id="@+id/doctorMainFragment"
+        android:name="com.example.shms.ui.doctor.DoctorMainFragment"
+        android:label="Trang chủ">
+        <action
+            android:id="@+id/action_main_to_schedule"
+            app:destination="@id/doctorScheduleFragment" />
+        <action
+            android:id="@+id/action_main_to_patients"
+            app:destination="@id/patientMonitoringFragment" />
+        <action
+            android:id="@+id/action_main_to_profile"
+            app:destination="@id/doctorProfileFragment" />
+        <action
+            android:id="@+id/action_main_to_chat"
+            app:destination="@id/doctorChatFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/doctorScheduleFragment"
+        android:name="com.example.shms.ui.doctor.DoctorScheduleFragment"
+        android:label="Lịch khám">
+        <argument
+            android:name="selectedDate"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/patientMonitoringFragment"
+        android:name="com.example.shms.ui.doctor.PatientMonitoringFragment"
+        android:label="Theo dõi bệnh nhân" />
+
+    <fragment
+        android:id="@+id/doctorProfileFragment"
+        android:name="com.example.shms.ui.doctor.DoctorProfileFragment"
+        android:label="Thông tin cá nhân" />
+
+    <fragment
+        android:id="@+id/doctorChatFragment"
+        android:name="com.example.shms.ui.doctor.DoctorChatFragment"
+        android:label="Tin nhắn">
+        <argument
+            android:name="patientId"
+            app:argType="integer"
+            android:defaultValue="-1" />
+    </fragment>
+</navigation>

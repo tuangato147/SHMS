@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_patient"
+    app:startDestination="@id/patientMainFragment">
+
+    <fragment
+        android:id="@+id/patientMainFragment"
+        android:name="com.example.shms.ui.patient.PatientMainFragment"
+        android:label="Trang chủ">
+        <action
+            android:id="@+id/action_main_to_appointment"
+            app:destination="@id/appointmentBookingFragment" />
+        <action
+            android:id="@+id/action_main_to_schedule"
+            app:destination="@id/appointmentScheduleFragment" />
+        <action
+            android:id="@+id/action_main_to_profile"
+            app:destination="@id/patientProfileFragment" />
+        <action
+            android:id="@+id/action_main_to_chat"
+            app:destination="@id/patientChatFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/appointmentBookingFragment"
+        android:name="com.example.shms.ui.patient.AppointmentBookingFragment"
+        android:label="Đặt lịch khám">
+        <argument
+            android:name="doctorId"
+            app:argType="integer"
+            android:defaultValue="-1" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/appointmentScheduleFragment"
+        android:name="com.example.shms.ui.patient.AppointmentScheduleFragment"
+        android:label="Lịch khám" />
+
+    <fragment
+        android:id="@+id/patientProfileFragment"
+        android:name="com.example.shms.ui.patient.PatientProfileFragment"
+        android:label="Thông tin cá nhân" />
+
+    <fragment
+        android:id="@+id/patientChatFragment"
+        android:name="com.example.shms.ui.patient.PatientChatFragment"
+        android:label="Tin nhắn">
+        <argument
+            android:name="doctorId"
+            app:argType="integer"
+            android:defaultValue="-1" />
+    </fragment>
+</navigation>

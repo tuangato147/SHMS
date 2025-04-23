@@ -97,4 +97,8 @@ dependencies {
     implementation("androidx.room:room-guava:$room_version")   // nếu dùng Guava
     implementation("androidx.lifecycle:lifecycle-common-java8:$lifecycle_version")
 
+    val nav_version = "2.7.0"
+    implementation("androidx.navigation:navigation-fragment:$nav_version")
+    implementation("androidx.navigation:navigation-ui:$nav_version")
+
 }

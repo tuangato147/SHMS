@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_staff"
+    app:startDestination="@id/staffMainFragment">
+
+    <fragment
+        android:id="@+id/staffMainFragment"
+        android:name="com.example.shms.ui.staff.StaffMainFragment"
+        android:label="Trang chủ">
+        <action
+            android:id="@+id/action_main_to_inventory"
+            app:destination="@id/medicineInventoryFragment" />
+        <action
+            android:id="@+id/action_main_to_rooms"
+            app:destination="@id/roomManagementFragment" />
+        <action
+            android:id="@+id/action_main_to_history"
+            app:destination="@id/stockHistoryFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/medicineInventoryFragment"
+        android:name="com.example.shms.ui.staff.MedicineInventoryFragment"
+        android:label="Quản lý thuốc" />
+
+    <fragment
+        android:id="@+id/roomManagementFragment"
+        android:name="com.example.shms.ui.staff.RoomManagementFragment"
+        android:label="Quản lý phòng" />
+
+    <fragment
+        android:id="@+id/stockHistoryFragment"
+        android:name="com.example.shms.ui.staff.StockHistoryFragment"
+        android:label="Lịch sử kho" />
+</navigation>
