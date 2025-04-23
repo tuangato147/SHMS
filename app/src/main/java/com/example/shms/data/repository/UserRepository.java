@@ -2,11 +2,10 @@ package com.example.shms.data.repository;
 
 import android.app.Application;
 import androidx.lifecycle.LiveData;
-
 import com.example.shms.data.local.dao.UserDao;
 import com.example.shms.data.local.database.AppDatabase;
 import com.example.shms.data.local.entities.User;
-
+import com.example.shms.utils.Constants;
 import java.util.List;
 
 public class UserRepository {
@@ -19,11 +18,7 @@ public class UserRepository {
         allUsers = userDao.getAllUsers();
     }
 
-    // Thêm method getUserByUsername
-    public LiveData<User> getUserByUsername(String username) {
-        return userDao.getUserByUsername(username);
-    }
-    // Login methods
+    // Authentication methods
     public LiveData<User> login(String username, String password) {
         return userDao.login(username, password);
     }
@@ -32,16 +27,58 @@ public class UserRepository {
         return userDao.loginWithRole(username, password, role);
     }
 
-    // CRUD operations
+    // Registration method với callback
+    public void register(User user, OnRegistrationCallback callback) {
+        AppDatabase.databaseWriteExecutor.execute(() -> {
+            try {
+                // Kiểm tra username đã tồn tại
+                User existingUser = userDao.getUserByUsernameSync(user.getUsername());
+                if (existingUser != null) {
+                    callback.onFailure("Username đã tồn tại");
+                    return;
+                }
+
+                // Insert user mới
+                long userId = userDao.insert(user);
+                if (userId > 0) {
+                    callback.onSuccess();
+                } else {
+                    callback.onFailure("Đăng ký thất bại");
+                }
+            } catch (Exception e) {
+                callback.onFailure(e.getMessage());
+            }
+        });
+    }
+
+    // User management methods
+    public LiveData<User> getUserByUsername(String username) {
+        return userDao.getUserByUsername(username);
+    }
+
     public LiveData<List<User>> getAllUsers() {
         return allUsers;
     }
 
-    public void insert(User user) {
+    public LiveData<List<User>> getUsersByRole(String role) {
+        return userDao.getUsersByRole(role);
+    }
+
+    public void update(User user) {
         AppDatabase.databaseWriteExecutor.execute(() -> {
-            userDao.insert(user);
+            userDao.update(user);
         });
     }
 
-    // Thêm các methods khác tương tự
+    public void delete(User user) {
+        AppDatabase.databaseWriteExecutor.execute(() -> {
+            userDao.delete(user);
+        });
+    }
+
+    // Callback interface cho đăng ký
+    public interface OnRegistrationCallback {
+        void onSuccess();
+        void onFailure(String error);
+    }
 }
